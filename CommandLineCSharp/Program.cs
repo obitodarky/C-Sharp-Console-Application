@@ -14,7 +14,7 @@ namespace CommandLineCSharp
             //Console.WriteLine(x + 2);
 
             if(x>2){
-                Console.WriteLine("x + 2 is " + " More " );
+                Console.WriteLine("x + 2 is " + (x+2));
             } else {
                 Console.WriteLine("Enter a number which is greater than 2");
                 int y = Convert.ToInt32(Console.ReadLine());
