@@ -1,17 +1,16 @@
 ﻿using System;
 
-namespace CommandLineCSharp
+namespace CommandLineCSharps
 {
     class MainClass
     {
-        public static void Main(string[] args)
+        public static void Main(String[] args)
         {
             Console.WriteLine("First Console Application");
             Console.ReadLine();
 
             Console.WriteLine("First Number");
             int x = Convert.ToInt32(Console.ReadLine());
-            //Console.WriteLine(x + 2);
 
             if(x>2){
                 Console.WriteLine("x + 2 is " + (x+2));
