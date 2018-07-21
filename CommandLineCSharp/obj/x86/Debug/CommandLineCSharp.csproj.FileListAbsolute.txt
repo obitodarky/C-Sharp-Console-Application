@@ -1,0 +1,6 @@
+/Users/harshmehta/Desktop/Harsh/c#/CommandLineCSharp/CommandLineCSharp/bin/Debug/CommandLineCSharp.exe
+/Users/harshmehta/Desktop/Harsh/c#/CommandLineCSharp/CommandLineCSharp/bin/Debug/CommandLineCSharp.pdb
+/Users/harshmehta/Desktop/Harsh/c#/CommandLineCSharp/CommandLineCSharp/obj/x86/Debug/CommandLineCSharp.csprojResolveAssemblyReference.cache
+/Users/harshmehta/Desktop/Harsh/c#/CommandLineCSharp/CommandLineCSharp/obj/x86/Debug/CommandLineCSharp.csproj.CoreCompileInputs.cache
+/Users/harshmehta/Desktop/Harsh/c#/CommandLineCSharp/CommandLineCSharp/obj/x86/Debug/CommandLineCSharp.exe
+/Users/harshmehta/Desktop/Harsh/c#/CommandLineCSharp/CommandLineCSharp/obj/x86/Debug/CommandLineCSharp.pdb
