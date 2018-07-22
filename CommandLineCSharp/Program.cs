@@ -31,7 +31,8 @@ namespace CommandLineCSharps
                     }
                 }
             }
-            catch (Exception){
+            catch (Exception)
+            {
                 Console.WriteLine("Please enter proper number");
             }
 
