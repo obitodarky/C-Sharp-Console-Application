@@ -1,21 +1,23 @@
 ﻿using System;
 
-namespace CommandLineCSharps
+namespace CommandLineCSharp
 {
-    class MainClass
+    class Program
     {
         public static void Main(String[] args)
         {
-            Console.WriteLine("First Console Application");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("Console Application , press enter");
             Console.ReadLine();
-
+            Console.WriteLine(Convert.ToString(32));
+            Console.BackgroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine("First Number");
             try
             {
                 int x = Convert.ToInt32(Console.ReadLine());
                 if (x > 2)
                 {
-                    Console.WriteLine("x + 2 is " + (x + 2));
+                    Console.WriteLine((x) + " + 2 is " + (x + 2));
                 }
                 else
                 {
