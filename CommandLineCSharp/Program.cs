@@ -4,74 +4,98 @@ namespace CommandLineCSharp
 {
     class Program
     {
-        public static void Main(String[] args)
+        private static void Main(String[] args)
         {
-            
-            //font color
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("Console Application , Enter Name : ");
+                Console.Clear();
+                //font color
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("Console Application , Enter Name : ");
 
-            /* Break Point */
+                /* Break Point */
 
 
-            bool status = false;
-            //font background color
-            Console.BackgroundColor = ConsoleColor.DarkCyan;
-            //Console.WriteLine(" Hello {0}! " , Console.ReadLine());
-            Console.WriteLine("Hello " + Console.ReadLine());
-            Console.WriteLine("First Number");
-            try
-            {
-                int x = Convert.ToInt32(Console.ReadLine());
-                if (x > 2)
+                bool status = false;
+                //font background color
+                Console.BackgroundColor = ConsoleColor.DarkCyan;
+                //Console.WriteLine(" Hello {0}! " , Console.ReadLine());
+                Console.WriteLine("Hello " + Console.ReadLine());
+                Console.WriteLine("First Number");
+                try
                 {
-                    Console.WriteLine((x) + " + 2 is " + (x + 2));
-                }
-                else
-                {
-                    Console.WriteLine("Enter a number which is greater than 2");
-                    int y = Convert.ToInt32(Console.ReadLine());
-                    if (y > 2)
+                    int x = Convert.ToInt32(Console.ReadLine());
+                    if (x > 2)
                     {
-                        Console.WriteLine("Good" +  (y+x));
-                        status = true;
+                        Console.WriteLine((x) + " + 2 is " + (x + 2));
                     }
                     else
                     {
-                        Console.WriteLine("Bad");
-                        Console.WriteLine("Please don't enter " + y);
-                        status = false;
+                        Console.WriteLine("Enter a number which is greater than 2");
+                        int y = Convert.ToInt32(Console.ReadLine());
+                        if (y > 2)
+                        {
+                            Console.WriteLine("Good" + (y + x));
+                            status = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Bad");
+                            Console.WriteLine("Please don't enter " + y);
+                            status = false;
+                        }
                     }
                 }
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Please enter proper number");
-            }
-
-            if (status == false)
-            {
-
-                Console.WriteLine("What did I tell you about entering a proper number you dumb shit ");
-                Console.WriteLine("Press q to quit");
-                String q = Convert.ToString(Console.Read());
-
-                if(q == "q"){
-                    Environment.Exit(0);
+                catch (Exception)
+                {
+                    Console.WriteLine("Please enter proper number");
                 }
 
-            } else {
-                Console.WriteLine("Good Work!");
-                Console.WriteLine("Press q to quit");
-                String q = Convert.ToString(Console.Read());
+                if (status == false)
+                {
 
-                if(q == "q"){
-                    Environment.Exit(0);
+                    Console.WriteLine("What did I tell you about entering a proper number you dumb shit ");
+                    Console.WriteLine("Press q to quit");
+                    String q = Convert.ToString(Console.Read());
+
+                    if (q == "q")
+                    {
+                        Environment.Exit(0);
+                    }
+
+                }
+                else
+                {
+                    Console.WriteLine("Good Work!");
+                    Console.WriteLine("Press q to quit");
+                    String q = Convert.ToString(Console.Read());
+
+                    if (q == "q")
+                    {
+                        Environment.Exit(0);
+                    }
+                else
+                {
+                    //goto;
+
+                    switch (q)
+                    {
+                        case "m":
+                            //goto menu;
+                           // break;
+
+                        case "c":
+                            //some line of code;
+                            break;
+
+                        default:
+                            //some other line of code;
+                            break;
+                        }
+                    }
+
                 }
             }
-
         }
     }
-}
+
 
 
