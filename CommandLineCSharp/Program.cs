@@ -272,7 +272,7 @@ namespace CommandLineCSharp
             Console.WriteLine("1.Circle");
             Console.WriteLine("2.Sphere");
             Console.WriteLine("3.Cylinder");
-
+            Console.WriteLine("--------------");
             Console.WriteLine("Select Shape");
 
             int x = Convert.ToInt32(Console.ReadLine());
