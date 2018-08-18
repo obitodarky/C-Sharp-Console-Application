@@ -156,7 +156,7 @@ namespace CommandLineCSharp
 
     } */
 
-    class Override
+    /* class Override
     {
         public virtual void show(){
             Console.WriteLine("Inside Parent");
@@ -184,6 +184,7 @@ namespace CommandLineCSharp
             Override2 obj2 = new Override2();
             Override obj3 = new Override3();
 
+            //reference to parent class 
             obj3 = obj1;
 
             obj1.show();
@@ -193,8 +194,132 @@ namespace CommandLineCSharp
 
 
         }
+    } */
+
+    class Shape2{
+
+        public const double PI = Math.PI;
+        protected double x, y;
+        public Shape2(){
+
+            Console.WriteLine("Default constructor");
+        }
+
+        public Shape2(double x , double y){
+
+            this.x = x;
+            this.y = y;
+
+        }
+
+        public virtual double Area(){
+
+            return x * y;
+
+        }
     }
 
+    class Circle : Shape2 {
+
+        public Circle(double r) : base(r,0){
+
+
+        }
+
+        public override double Area()
+        {
+            return PI * x * x;
+        }
+
+    }
+
+    class Sphere : Shape2{
+
+
+        public Sphere(double r) : base(r , 0) {
+            
+        }
+
+        public override double Area()
+        {
+            return 4 * PI * x * x;
+        }
+    }
+
+    class Cylinder : Shape2 {
+
+        public Cylinder(double r , double h) : base( r , h ){
+
+
+        }
+
+        public override double Area()
+        {
+            return 2 * PI * x * x + 2 * PI * x * y;
+        }
+    }
+
+    class ShapeMain{
+
+        public static void Main(string[] args)
+        {
+
+            double r, h;
+        menu:
+
+            Console.Clear();
+            Console.WriteLine("Menu");
+            Console.WriteLine("1.Circle");
+            Console.WriteLine("2.Sphere");
+            Console.WriteLine("3.Cylinder");
+
+            Console.WriteLine("Select Shape");
+
+            int x = Convert.ToInt32(Console.ReadLine());
+
+            switch (x)
+            {
+
+                case 1:
+
+                    Console.WriteLine("Enter Radius value");
+                    r = Convert.ToDouble(Console.ReadLine());
+                    Shape2 c = new Circle(r);
+                    Console.WriteLine("Area is " + c.Area());
+                    break;
+
+                case 2:
+                    Console.WriteLine("Enter Radius value");
+                    r = Convert.ToDouble(Console.ReadLine());
+                    Shape2 s = new Sphere(r);
+                    Console.WriteLine("Area is " + s.Area());
+                    break;
+
+                case 3:
+                    Console.WriteLine("Enter Radius value");
+                    r = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine("Enter Height value");
+                    h = Convert.ToDouble(Console.ReadLine());
+                    Shape2 cy = new Cylinder(r, h);
+                    Console.WriteLine("Area is " + cy.Area());
+                    break;
+            }
+
+            Console.WriteLine("Press M to go to menu or Q to exit");
+
+            char cmd = Convert.ToChar(Console.ReadLine());
+
+            if (cmd == 'M' || cmd == 'm')
+            {
+                goto menu;
+            }
+            else if (cmd == 'Q' || cmd == 'q'){
+                Environment.Exit(0);
+            }
+
+
+        } 
+    }
 }
 
 
