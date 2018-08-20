@@ -305,17 +305,17 @@ namespace CommandLineCSharp
                     break;
             }
 
-            Console.WriteLine("Press M to go to menu or Q to exit");
+            Console.WriteLine("Press M to go to menu or anything else to exit");
 
-            char cmd = Convert.ToChar(Console.ReadLine());
+            ConsoleKeyInfo cmd = Console.ReadKey();
 
-            if (cmd == 'M' || cmd == 'm')
+            if (cmd.KeyChar == 'M' || cmd.KeyChar == 'm')
             {
                 goto menu;
-            }
-            else if (cmd == 'Q' || cmd == 'q'){
+            } else {
                 Environment.Exit(0);
             }
+
 
 
         } 
