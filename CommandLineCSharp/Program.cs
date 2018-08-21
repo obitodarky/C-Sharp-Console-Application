@@ -196,7 +196,7 @@ namespace CommandLineCSharp
         }
     } */
 
-    class Shape2{
+    /* class Shape2{
 
         public const double PI = Math.PI;
         protected double x, y;
@@ -319,6 +319,46 @@ namespace CommandLineCSharp
 
 
         } 
+    } */
+
+    interface Abc {
+
+        void Xyz();
+
+
+    }
+
+    interface Pqr{
+
+        void Def();
+    }
+
+    class TestClass: Abc , Pqr{
+
+        public void Xyz(){
+
+            Console.WriteLine("Inside implemented class of ABC");
+        }
+
+        public void Def(){
+
+            Console.WriteLine("Inside implemented class of PQR");
+        }
+
+    }
+
+    class InterfaceDemo{
+
+        public static void Main(string[] args){
+
+            TestClass obj = new TestClass();
+
+            obj.Xyz();
+            obj.Def();
+
+        }
+
+
     }
 }
 
