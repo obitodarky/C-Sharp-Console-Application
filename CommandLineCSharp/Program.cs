@@ -321,45 +321,194 @@ namespace CommandLineCSharp
         } 
     } */
 
-    interface Abc {
+    /* interface Abc
+    {
 
         void Xyz();
 
 
     }
 
-    interface Pqr{
+    interface Pqr
+    {
 
         void Def();
+    }
+
+    interface A1: Pqr , Abc{
+
+        void display();
+
     }
 
     class TestClass: Abc , Pqr{
 
         public void Xyz(){
 
-            Console.WriteLine("Inside implemented class of ABC");
+            Console.WriteLine("Inside implemented class of interface ABC");
         }
 
         public void Def(){
 
-            Console.WriteLine("Inside implemented class of PQR");
+            Console.WriteLine("Inside implemented class of interface PQR");
         }
 
+    }
+
+    class SecondTest : A1 {
+
+        public void Xyz()
+        {
+
+            Console.WriteLine("Inside Second class of interface A1");
+        }
+
+        public void Def()
+        {
+
+            Console.WriteLine("Inside Second class of interface A1");
+        }
+
+        public void display(){
+
+            Console.WriteLine("Method of interface A1");
+        }
     }
 
     class InterfaceDemo{
 
         public static void Main(string[] args){
 
-            TestClass obj = new TestClass();
+            Abc obj = new TestClass();
+
+            obj.Xyz();
+
+            Pqr obj2 = new TestClass();
+
+            obj2.Def(); 
+
+            SecondTest obj = new SecondTest();
 
             obj.Xyz();
             obj.Def();
+            obj.display();
+
 
         }
 
 
+    } */
+
+    interface IDinner{
+
+        void doDinner(double time, string place);
+
     }
+
+    interface IGym{
+
+        void doWorkout(double time , string place);
+
+    }
+
+    interface IMovie : IDinner
+    {
+
+        void doMovie(double time, string place);
+
+    }
+    interface IShopping : IMovie{
+
+            void doShopping(double time, string place);
+
+    }
+
+    class Routine : IGym , IDinner{
+        
+            public void doWorkout(double time, string place){
+                Console.WriteLine("Gym is at " + time + " at " + place);
+            }
+
+            public void doDinner(double time, string place){
+            
+                Console.WriteLine("Dinner is at " + time + " at " + place);    
+            }
+
+    }
+
+    class Holiday : IShopping{
+
+            public void doMovie(double time , string place){
+                    
+                Console.WriteLine("Movie is at " + time + " at " + place );
+
+            }
+
+            public void doShopping(double time , string place){
+                
+                Console.WriteLine("Shopping is at " + time + " at " + place);
+            }
+
+            public void doDinner(double time , string place){
+
+            Console.WriteLine("Dinner is at " + time + " at " + place);
+            
+        }
+        
+    }
+
+    class Program{
+
+        public static void Main(string[] args){
+
+            Console.WriteLine("What type of day is it ? ");
+            Console.WriteLine("1. Routine");
+            Console.WriteLine("2. Holiday");
+
+            int q = Convert.ToInt32(Console.ReadLine());
+
+            switch(q){
+
+                case 1:
+                    Routine obj = new Routine();
+                    Console.WriteLine("Enter time and place of Gym");
+                    double Gymtime = Convert.ToDouble(Console.ReadLine());
+                    string Gymplace = Convert.ToString(Console.ReadLine());
+
+                    Console.WriteLine("Enter time and place of Dinner");
+                    double Dinnertime = Convert.ToDouble(Console.ReadLine());
+                    string Dinnerplace = Convert.ToString(Console.ReadLine());
+
+                    obj.doDinner(Dinnertime, Dinnerplace);
+                    obj.doWorkout(Gymtime, Gymplace);
+
+                    break;
+
+                case 2:
+                    Holiday obj2 = new Holiday();
+                    Console.WriteLine("Enter time and place of Shopping");
+                    double Shoptime = Convert.ToDouble(Console.ReadLine());
+                    string ShopPlace = Convert.ToString(Console.ReadLine());
+
+                    Console.WriteLine("Enter time and place of Dinner");
+                    double Dinnertime2 = Convert.ToDouble(Console.ReadLine());
+                    string Dinnerplace2 = Convert.ToString(Console.ReadLine());
+
+                    Console.WriteLine("Enter time and place of Movie");
+                    double Movietime = Convert.ToDouble(Console.ReadLine());
+                    string Movieplace = Convert.ToString(Console.ReadLine());
+
+
+                    obj2.doDinner(Dinnertime2, Dinnerplace2);
+                    obj2.doMovie(Movietime, Movieplace);
+                    obj2.doShopping(Shoptime, ShopPlace);
+
+                    break;
+            }
+
+        }
+    }
+
 }
 
 
