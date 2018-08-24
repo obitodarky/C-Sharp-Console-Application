@@ -399,7 +399,7 @@ namespace CommandLineCSharp
 
     } */
 
-    interface IDinner{
+    /* interface IDinner{
 
         void doDinner(double time, string place);
 
@@ -505,6 +505,216 @@ namespace CommandLineCSharp
 
                     break;
             }
+
+        }
+    } */
+
+
+    abstract class BaseStudent
+    {
+
+        protected string Name;
+        protected string ID;
+        protected string Class;
+        protected string Address;
+
+        public abstract string stuName { get; set; }
+        public abstract string stuID { get; set; }
+        public abstract string stuClass { get; set; }
+        public abstract string stuAddress { get; set; }
+
+
+        public void rankCalculator(){
+            
+        }
+
+        public void displayDetails(string Name , string ID , string Class , string Address){
+
+            Console.WriteLine("Name : " + Name);
+            Console.WriteLine("ID : " + ID);
+            Console.WriteLine("Class : " + Class);
+            Console.WriteLine("Address : " + Address);
+
+        }
+
+        public abstract void feesPayment();
+
+        public abstract void modeOfTransport();
+
+
+    }
+
+    interface IDance
+    {
+
+        void doDance();
+
+    }
+
+    interface ISinging
+    {
+        void Sing();
+    }
+
+    interface IYoga
+    {
+        void doYoga();
+    }
+
+    class Student1 : BaseStudent, IDance , ISinging {
+
+
+        public override string stuName { 
+
+            get
+            {
+                return Name;
+            }
+            set
+            {
+                Name = value;    
+            } 
+        }
+        public override string stuID
+        {
+
+            get
+            {
+                return ID;
+            }
+            set
+            {
+                ID = value;
+            }
+        }
+
+        public override string stuClass
+        {
+
+            get
+            {
+                return Class;
+            }
+            set
+            {
+                Class = value;
+            }
+        }
+
+        public override string stuAddress
+        {
+
+            get
+            {
+                return Address;
+            }
+            set
+            {
+                Address = value;
+            }
+        }
+
+        public void doDance(){
+            
+        }
+
+        public void Sing(){
+            
+        }
+
+        public override void feesPayment()
+        {
+            
+
+        }
+
+        public override void modeOfTransport()
+        {
+            
+        }
+
+    }
+
+    class Student2 : BaseStudent , IYoga {
+
+
+        public override string stuName
+        {
+
+            get
+            {
+                return Name;
+            }
+            set
+            {
+                Name = value;
+            }
+        }
+        public override string stuID
+        {
+
+            get
+            {
+                return ID;
+            }
+            set
+            {
+                ID = value;
+            }
+        }
+
+        public override string stuClass
+        {
+
+            get
+            {
+                return Class;
+            }
+            set
+            {
+                Class = value;
+            }
+        }
+
+        public override string stuAddress
+        {
+
+            get
+            {
+                return Address;
+            }
+            set
+            {
+                Address = value;
+            }
+        }
+
+
+        public void doYoga(){
+            
+        }
+
+
+        public override void feesPayment()
+        {
+
+
+        }
+
+        public override void modeOfTransport()
+        {
+
+        }
+
+    }
+
+    class AbstractMain{
+
+        public static void Main(string[] args){
+
+            int[] arr = { 1, 2, 3, 4, 5 };
+
+            Console.WriteLine(arr.Rank);
 
         }
     }
