@@ -524,9 +524,6 @@ namespace CommandLineCSharp
         public abstract string stuAddress { get; set; }
 
 
-        public void rankCalculator(){
-            
-        }
 
         public void displayDetails(string Name , string ID , string Class , string Address){
 
@@ -564,6 +561,16 @@ namespace CommandLineCSharp
     class Student1 : BaseStudent, IDance , ISinging {
 
 
+
+        public void displayInfo()
+        {
+
+            displayDetails(stuName, stuID, stuClass, stuAddress);
+            doDance();
+            Sing();
+            feesPayment();
+            modeOfTransport();
+        }
 
 
         public override string stuName { 
@@ -644,6 +651,14 @@ namespace CommandLineCSharp
 
     class Student2 : BaseStudent , IYoga {
 
+        public void displayInfo(){
+
+            displayDetails(stuName, stuID, stuClass, stuAddress);
+            doYoga();
+            feesPayment();
+            modeOfTransport();
+        }
+
 
         public override string stuName
         {
@@ -722,32 +737,30 @@ namespace CommandLineCSharp
         public static void Main(string[] args){
 
             Student1 obj1 = new Student1();
-            Student2 obj2 = new Student2();
+
 
             Console.WriteLine("Write Name , ID , Class and Address  of Student 1");
-            string s1Name = Convert.ToString(Console.ReadLine());
-            string s1ID = Convert.ToString(Console.ReadLine());
-            string s1Class = Convert.ToString(Console.ReadLine());
-            string s1Address = Convert.ToString(Console.ReadLine());
+            obj1.stuName = Convert.ToString(Console.ReadLine());
+            obj1.stuID = Convert.ToString(Console.ReadLine());
+            obj1.stuClass = Convert.ToString(Console.ReadLine());
+            obj1.stuAddress = Convert.ToString(Console.ReadLine());
 
-            obj1.displayDetails(s1Name, s1ID, s1Class, s1Address);
-            obj1.doDance();
-            obj1.feesPayment();
-            obj1.modeOfTransport();
-            obj1.Sing();
+            obj1.displayInfo();
+
+            Student2 obj2 = new Student2();
 
             Console.WriteLine("----------------");
 
             Console.WriteLine("Write Name , ID , Class and Address  of Student 2");
-            string s2Name = Convert.ToString(Console.ReadLine());
-            string s2ID = Convert.ToString(Console.ReadLine());
-            string s2Class = Convert.ToString(Console.ReadLine());
-            string s2Address = Convert.ToString(Console.ReadLine());
+            obj2.stuName = Convert.ToString(Console.ReadLine());
+            obj2.stuID = Convert.ToString(Console.ReadLine());
+            obj2.stuClass = Convert.ToString(Console.ReadLine());
+            obj2.stuAddress = Convert.ToString(Console.ReadLine());
 
-            obj1.displayDetails(s2Name, s2ID, s2Class, s2Address);
-            obj2.doYoga();
-            obj2.feesPayment();
-            obj2.modeOfTransport();
+            obj2.displayInfo();
+
+
+
 
 
 
