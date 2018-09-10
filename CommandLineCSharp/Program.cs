@@ -510,7 +510,7 @@ namespace CommandLineCSharp
     } */
 
 
-    abstract class BaseStudent
+    /*abstract class BaseStudent
     {
 
         protected string Name;
@@ -765,8 +765,393 @@ namespace CommandLineCSharp
 
 
         }
+    } */
+
+    /* abstract class Person{
+
+        protected string ID;
+        protected string NAME;
+
+        public abstract string _ID { get; set; }
+        public abstract string _NAME { get; set; }
+
+        public abstract void displayDetails();
+
+
     }
 
-}
+    class Faculty : Person {
 
+
+        public override string _ID { get { return ID; } set { ID = value; } }
+        public override string _NAME { get { return NAME; } set { NAME = value; } }
+        public string course;
+
+        public override void displayDetails()
+        {
+
+            Console.WriteLine("Faculty Name : " + this._ID);
+            Console.WriteLine("Faculty ID : " + this._NAME);
+            Console.WriteLine("Course taught : " + this.course);
+        }
+
+    }
+
+    class Student : Person
+    {
+
+
+        public override string _ID { get { return ID; } set { ID = value; } }
+        public override string _NAME { get { return NAME; } set { NAME = value; } }
+        public string grade;
+
+        public override void displayDetails()
+        {
+
+            Console.WriteLine("Student Name : " + this._ID);
+            Console.WriteLine("Student ID : " + this._NAME);
+            Console.WriteLine("Grade is : " + this.grade);
+        }
+
+    }
+
+    class AbsMain{
+
+        public static void Main(string[] args){
+
+            Console.WriteLine("Are you a faculty or a student ?");
+            Console.WriteLine("1.Faculty");
+            Console.WriteLine("2.Student");
+
+            int r = Convert.ToInt32(Console.ReadLine());
+
+            switch(r){
+
+                case 1:
+                    Faculty fobj = new Faculty();
+                    Console.WriteLine("---------------");
+                    Console.WriteLine("Enter Faculty 1 ID And Name and Course");
+                    fobj._ID = Convert.ToString(Console.ReadLine());
+                    fobj._NAME = Convert.ToString(Console.ReadLine());
+                    fobj.course = Convert.ToString(Console.ReadLine());
+
+                    Faculty fobj2 = new Faculty();
+                    Console.WriteLine("---------------");
+                    Console.WriteLine("Enter Faculty 2 ID And Name and Course");
+                    fobj2._ID = Convert.ToString(Console.ReadLine());
+                    fobj2._NAME = Convert.ToString(Console.ReadLine());
+                    fobj2.course = Convert.ToString(Console.ReadLine());
+
+                    Console.WriteLine("Faculty 1 info is :");
+                    fobj.displayDetails();
+
+                    Console.WriteLine("------------");
+
+                    Console.WriteLine("Faculty 2 info is :");
+                    fobj2.displayDetails();
+                    break;
+
+                case 2:
+                    Student sobj = new Student();
+                    Console.WriteLine("---------------");
+                    Console.WriteLine("Enter Student 1 ID And Name and Grade");
+                    sobj._ID = Convert.ToString(Console.ReadLine());
+                    sobj._NAME = Convert.ToString(Console.ReadLine());
+                    sobj.grade = Convert.ToString(Console.ReadLine());
+
+                    Student sobj2 = new Student();
+                    Console.WriteLine("---------------");
+                    Console.WriteLine("Enter Student 2 ID And Name and Grade");
+                    sobj2._ID = Convert.ToString(Console.ReadLine());
+                    sobj2._NAME = Convert.ToString(Console.ReadLine());
+                    sobj2.grade = Convert.ToString(Console.ReadLine());
+
+                    Console.WriteLine("Student 1 info is : ");
+                    sobj.displayDetails();
+
+                    Console.WriteLine("------------");
+
+                    Console.WriteLine("Student 2 info is : ");
+                    sobj2.displayDetails();
+
+                    break;
+
+            }
+        }
+    } */
+
+    /* 
+     * class Queue{
+
+        public int front = 0;
+        public int rear = 0;
+        public static int size;
+
+        public void setSize(int n){
+            size = n;
+
+        }
+
+        int[] queue = new int[size];
+
+
+
+        public void Enqueue(int x){
+
+            if (this.rear == size){
+
+                    Console.WriteLine("queue is full!");
+
+            } else {
+
+                if(this.front == 0 && this.rear == 0){
+
+                    this.front = 1;
+                }
+
+                Console.WriteLine(queue);
+                Console.WriteLine(rear);
+
+                rear = rear + 1;
+                Console.WriteLine(rear);
+                this.queue[this.rear] = x;
+
+            }
+
+        }
+
+        public void Dequeue(int x){
+
+            if(this.front ==0){
+
+                Console.WriteLine("Queue is empty");
+            } else {
+
+                x = this.queue[this.front];
+                this.front = this.front + 1;
+
+            }
+
+
+
+        }
+
+        public void showQueue(){
+
+            for (int j = 0; j < size; j++ ){
+
+                Console.WriteLine(queue[j]);
+            }
+
+        }
+
+
+
+    }
+
+
+    class QueueMain{
+
+        public static void Main(string[] args){
+
+            Queue obj = new Queue();
+
+            Console.WriteLine("Enter no of elements");
+            int size = Convert.ToInt32(Console.ReadLine());
+
+            obj.setSize(size);
+
+            Console.WriteLine("Menu : ");
+            Console.WriteLine("1.Add to queue");
+            Console.WriteLine("2. Remove from queue");
+            Console.WriteLine("3. Peek queue");
+
+
+            int q = Convert.ToInt32(Console.ReadLine());
+
+            switch(q){
+                
+                case 1:
+                    int x = Convert.ToInt32(Console.ReadLine());
+                    obj.Enqueue(x);
+                    break;
+                
+                case 2:
+                    
+                    break;
+                
+                case 3:
+
+                    break;
+
+
+            }
+
+            obj.showQueue();
+
+
+        }
+
+    } */
+
+    /*public abstract class Employee{
+
+        public abstract string Name { get; set; }
+        public abstract int Age { get; set; }
+    }
+
+    class Teacher : Employee {
+
+        private string _Code;
+        private string _Name;
+        private int _Age;
+
+        public string Code { get { return _Code; } set{ _Code = value; }}
+        public override string Name
+        {
+            get
+            {
+                
+                //return _Name;
+                if (string.IsNullOrEmpty(this._Name))
+                    return "no name";
+                else
+                    return this._Name;
+
+                //ternary operator
+                //return string.IsNullOrEmpty(this._Name) ? "no name" : this._Name;
+            }
+            set
+            {
+
+                if (value == "")
+                    Console.WriteLine("No value for name");
+                else
+                    _Name = value;
+            }
+        }
+            public override int Age { 
+                get {
+
+                    return _Age;
+
+                } set {
+                if (value < 25)
+                    Console.WriteLine("Age cant be less than 25");
+                else
+                    _Age = value;
+            } 
+          }
+
+        public override string ToString()
+        {
+            return " Code = " + Code + "\n Name = " + Name + "\n Age = " + Age; 
+        }
+
+    }
+
+        class MainProg{
+
+            public static void Main(string[] args){
+
+            /*Teacher t1 = new Teacher();
+            Console.WriteLine("Enter age : ");
+            t1.Age = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Teacher info : " + t1.ToString());
+            t1.Age +=2;
+            Console.WriteLine("Age is now : " +t1.ToString()); 
+                
+            Teacher[] t2 = new Teacher[2];
+            for (int i = 0; i < 2; i++)
+            {
+
+                Console.WriteLine("Enter properties for Teacher : " + (i + 1));
+                t2[i].Name = Convert.ToString(Console.ReadLine());
+                t2[i].Age = Convert.ToInt32(Console.ReadLine());
+                t2[i].Code = Convert.ToString(Console.ReadLine());
+                
+                    Console.WriteLine("Teacher " + (i+1) + "info is \n");
+                    Console.WriteLine(t2[i].ToString());
+
+                }
+
+            }
+
+        } */
+
+    class Employee
+    {
+
+        int Eno;
+        double Salary;
+        string Ename, Location, Dname;
+
+        public Employee(int Eno , double Salary , string Ename , string Location , String Dname){
+
+            this.Eno = Eno;
+            this.Salary = Salary;
+            this.Ename = Ename;
+            this.Location = Location;
+            this.Dname = Dname;
+
+                
+        }
+
+        public object this[int index]{
+
+            get{
+
+                if (index == 0)
+                    return Eno;
+                else if (index == 1)
+                    return Salary;
+                else if (index == 2)
+                    return Ename;
+                else if (index == 3)
+                    return Location;
+                else if (index == 4)
+                    return Dname;
+                else
+                    return null;
+            }
+
+            set{
+
+                if (index == 1)
+                    Salary = (double)value;
+                else if (index == 3)
+                    Location = (string)value;
+                else if (index == 4)
+                    Dname = (string)value;
+            }
+
+        }
+
+    }
+
+    class EmployeeMain{
+
+        public static void Main(String[] args){
+
+            Employee employee = new Employee(1,85000.00,"Dhruvil","Nuv","Marketing");
+
+            Console.WriteLine("eno - " + employee[0].ToString());
+            Console.WriteLine("esalaray - " + employee[1].ToString());
+            Console.WriteLine("ename - " + employee[2].ToString());
+            Console.WriteLine("elocation - " + employee[3].ToString());
+            Console.WriteLine("edept - " + employee[4].ToString());
+
+            employee[3] = "Navrachana University";
+            employee[4] = "IT";
+
+
+            Console.WriteLine("eno - " + employee[0].ToString());
+            Console.WriteLine("esalaray - " + employee[1].ToString());
+            Console.WriteLine("ename - " + employee[2].ToString());
+            Console.WriteLine("elocation - " + employee[3].ToString());
+            Console.WriteLine("edept - " + employee[4].ToString());
+        }
+    }
+}
 
