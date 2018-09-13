@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using System.Linq;
+
 
 namespace CommandLineCSharp
 {
@@ -1080,7 +1082,9 @@ namespace CommandLineCSharp
 
         } */
 
-    class Employee
+    //INDEXER EXAMPLE
+
+    /*class Employee
     {
 
         int Eno;
@@ -1152,6 +1156,166 @@ namespace CommandLineCSharp
             Console.WriteLine("elocation - " + employee[3].ToString());
             Console.WriteLine("edept - " + employee[4].ToString());
         }
+    } */
+
+
+    //GENERIC LIST EXAMPLE
+
+    /*class Address {
+        public string City { get; set; }
+        public int Pincode { get; set; }
+        public string CellNo { get; set; }
+
+
+    }
+
+    class Customer{
+
+
+        //create generic addresses List
+        public Address getAddress(int pin){
+
+            foreach(Address o in addresses){
+
+                if(o.Pincode == pin){
+                    return o;
+                }
+            }
+            return null;
+        }
+
+
+        public Address getAddress(string city){
+
+            foreach(Address o in addresses){
+                
+                if(o.City == city){
+                    return o;
+                }
+            }
+            return null;
+        }
+        public Address getAddress(string cellNo , string nullstring)
+        {
+
+            foreach (Address o in addresses)
+            {
+
+                if (o.CellNo == cellNo)
+                {
+                    return o;
+                }
+            }
+            return null;
+        }
+    }
+
+    class AddressMain{
+
+        public static void Main(string[] args){
+
+            Customer c1 = new Customer();
+            Console.WriteLine("customer data: " + c1.getAddress("baroda" , "nullstring").Pincode);
+
+            foreach(Address a in c1["baroda"]){
+
+                Console.WriteLine("\t pincode: " + a.Pincode + "\t cell no " + a.CellNo + "\t city" + a.City);
+            }
+
+        }
+    } */
+
+    class ExceptionTest {
+
+        private string _Email;
+        private string _Phone;
+        private DateTime _Date;
+
+        public string Email{ 
+        
+            get{
+                return _Email;
+            }
+
+            set{
+                string email = value;
+                int atpos = email.IndexOf('@');
+                var dotpos = email.LastIndexOf('.');
+                if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= email.Length){
+
+
+                    Console.WriteLine("wrong email");
+
+                } else {
+
+                    _Email = value;
+                }
+
+            }
+        }
+
+        public string Phone{
+
+            get{
+
+                return _Phone;
+            }
+
+            set{
+                
+                if(!value.All(char.IsDigit) || value.Length != 10){
+
+                    throw new FormatException("Exception found");
+
+                    //Console.WriteLine("Wrong phone no");
+                } else {
+
+                    _Phone = value;
+                }
+            }
+        }
+
+        public DateTime Date{
+
+            get{
+                return _Date;   
+            }
+
+            set{
+
+                if(value != DateTime.Now.Date){
+
+                    Console.WriteLine("invalid date");
+                } else {
+
+                    _Date = value;
+                }
+            }
+        }
+
+    }
+
+    class ExceptionMain{
+
+        public static void Main(string[] args){
+
+            ExceptionTest e = new ExceptionTest();
+
+            try
+            {
+                e.Date = Convert.ToDateTime(Console.ReadLine()).Date;
+                e.Email = Convert.ToString(Console.ReadLine());
+                e.Phone = Convert.ToString(Console.ReadLine());
+                int x = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine(1/x);
+            }
+
+            catch (DivideByZeroException){
+
+                Console.WriteLine("0 used");
+            }
+        }
+
     }
 }
 
