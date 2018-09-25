@@ -1225,7 +1225,7 @@ namespace CommandLineCSharp
         }
     } */
 
-    class ExceptionTest {
+    /*class ExceptionTest {
 
         private string _Email;
         private string _Phone;
@@ -1316,6 +1316,114 @@ namespace CommandLineCSharp
             }
         }
 
+    } */
+
+
+    class StudentIndexer
+    {
+
+        public string studentName;
+        public double marks1, marks2, marks3;
+
+        public StudentIndexer(string studentName, double marks1, double marks2, double marks3)
+        {
+
+
+            this.studentName = studentName;
+            this.marks1 = marks1;
+            this.marks2 = marks2;
+            this.marks3 = marks3;
+
+
+        }
+
+        public object this[int index]
+        {
+
+            get
+            {
+
+                if (index == 0)
+                    return studentName;
+                else if (index == 1)
+                    return marks1;
+                else if (index == 2)
+                    return marks2;
+                else if (index == 3)
+                    return marks3;
+                else
+                    return null;
+
+            }
+
+            set
+            {
+
+                if (index == 0)
+                    studentName = (String)value;
+                else if (index == 1)
+                    marks1 = (double)value;
+                else if (index == 2)
+                    marks2 = (double)value;
+                else if (index == 3)
+                    marks3 = (double)value;
+
+            }
+
+
+
+        }
+        public void showPercentage(){
+
+            double percentage;
+            percentage = (marks1 + marks2 + marks3) / 300;
+
+            Console.WriteLine("Percentage for " + studentName + " is  {0}2F" , percentage);
+        }
+
+    }
+    class StudentMain{
+
+        public static void Main(string[] args){
+
+            Console.WriteLine("Student 1 :");
+
+            StudentIndexer stu1 = new StudentIndexer(
+                                                     Convert.ToString(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()),
+                                                     Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine())
+                                                    );
+
+            Console.WriteLine("Student 2 : ");
+
+            StudentIndexer stu2 = new StudentIndexer(
+                                         Convert.ToString(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()),
+                                         Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine())
+                                        );
+
+            Console.WriteLine("Student 3 :");
+
+            StudentIndexer stu3 = new StudentIndexer(
+                                         Convert.ToString(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()),
+                                         Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine())
+                                        );
+
+            Console.WriteLine("Student 4 : ");
+
+            StudentIndexer stu4 = new StudentIndexer(
+                                         Convert.ToString(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()),
+                                         Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine())
+                                        );
+
+            Console.WriteLine("Student 5 : ");
+            StudentIndexer stu5 = new StudentIndexer(
+                                         Convert.ToString(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()),
+                                         Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine())
+                                        );
+
+            stu1.showPercentage();
+            stu2.showPercentage();
+            stu3.showPercentage();
+        }
     }
 }
 
