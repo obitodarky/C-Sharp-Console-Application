@@ -1749,7 +1749,7 @@ namespace CommandLineCSharp
 
             if(right  <= heapSize && arr[right] > arr[largest]){
 
-                right = largest;
+                largest = right;
 
             }
 
@@ -1774,7 +1774,7 @@ namespace CommandLineCSharp
         {
 
             BuildHeap(arr);
-            for (int i = arr.Length - 1; i >= 0; i++)
+            for (int i = arr.Length - 1; i >= 0; i--)
             {
 
                 Swap(arr, 0, i);
@@ -1804,7 +1804,7 @@ namespace CommandLineCSharp
 
             HeapSort heap = new HeapSort();
 
-            int[] x = { 1, 3, 5, 10, 54, 6 };
+            int[] x = { 1, 3, 5, 10, 54, 6 ,8 ,67};
 
             heap.performHeapSort(x);
 
