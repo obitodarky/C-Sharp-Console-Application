@@ -1599,7 +1599,7 @@ namespace CommandLineCSharp
     } */
 
 
-    class CircularQueue
+    /* class CircularQueue
     {
 
         private int[] ele;
@@ -1664,10 +1664,10 @@ namespace CommandLineCSharp
         public void showQueue()
         {
 
-            /* foreach(int x in ele){
-
-                 Console.WriteLine(x);
-             } */
+            // foreach(int x in ele){
+            //
+            //     Console.WriteLine(x);
+            // } 
 
             int j = 0, i = 0;
 
@@ -1717,8 +1717,99 @@ namespace CommandLineCSharp
 
 
         }
+    } */
+
+
+    class HeapSort
+    {
+
+        private int heapSize;
+
+        private void BuildHeap(int[] arr){
+
+            heapSize = arr.Length - 1;
+            for (int i = heapSize / 2; i >= 0; i--){
+
+                Heapify(arr, i);
+            }
+        }
+
+
+        private void Heapify(int[] arr , int index){
+
+            int left = 2 * index;
+            int right = 2 * index + 1;
+            int largest = index;
+
+            if(left <= heapSize && arr[left] > arr[index]){
+
+                largest = left;
+
+            }
+
+            if(right  <= heapSize && arr[right] > arr[largest]){
+
+                right = largest;
+
+            }
+
+            if(largest != index){
+
+                Swap(arr, index, largest);
+                Heapify(arr, largest);
+
+            }
+        }
+
+        private void Swap(int[] arr, int x, int y)
+        {
+
+            int temp = arr[x];
+            arr[x] = arr[y];
+            arr[y] = temp;
+
+        }
+
+        public void performHeapSort(int[] arr)
+        {
+
+            BuildHeap(arr);
+            for (int i = arr.Length - 1; i >= 0; i++)
+            {
+
+                Swap(arr, 0, i);
+                heapSize--;
+                Heapify(arr, 0);
+            }
+
+            DisplayArray(arr);
+
+
+        }
+
+        private void DisplayArray(int[] arr){
+            
+            for (int i = 0; i < arr.Length; i++){
+
+                Console.WriteLine(arr[i]);
+            }
+        } 
+
     }
-    
+
+
+    class HeapMain{
+
+        public static void Main(string[] args){
+
+            HeapSort heap = new HeapSort();
+
+            int[] x = { 1, 3, 5, 10, 54, 6 };
+
+            heap.performHeapSort(x);
+
+        }
+    }
 }
 
 
