@@ -758,61 +758,61 @@ namespace CommandLineCSharp
 
     //INDEXER EXAMPLE
 
-   /* class Employee
-    {
-        int Eno;
-        double Salary;
-        string Ename, Location, Dname;
-        public Employee(int Eno , double Salary , string Ename , string Location , String Dname){
-            this.Eno = Eno;
-            this.Salary = Salary;
-            this.Ename = Ename;
-            this.Location = Location;
-            this.Dname = Dname;
-                
-        }
-        public object this[int index]{
-            get{
-                if (index == 0)
-                    return Eno;
-                else if (index == 1)
-                    return Salary;
-                else if (index == 2)
-                    return Ename;
-                else if (index == 3)
-                    return Location;
-                else if (index == 4)
-                    return Dname;
-                else
-                    return null;
-            }
-            set{
-                if (index == 1)
-                    Salary = (double)value;
-                else if (index == 3)
-                    Location = (string)value;
-                else if (index == 4)
-                    Dname = (string)value;
-            }
-        }
-    }
-    class EmployeeMain{
-        public static void Main(String[] args){
-            Employee employee = new Employee(1,85000.00,"Dhruvil","Nuv","Marketing");
-            Console.WriteLine("eno - " + employee[0].ToString());
-            Console.WriteLine("esalaray - " + employee[1].ToString());
-            Console.WriteLine("ename - " + employee[2].ToString());
-            Console.WriteLine("elocation - " + employee[3].ToString());
-            Console.WriteLine("edept - " + employee[4].ToString());
-            employee[3] = "Navrachana University";
-            employee[4] = "IT";
-            Console.WriteLine("eno - " + employee[0].ToString());
-            Console.WriteLine("esalaray - " + employee[1].ToString());
-            Console.WriteLine("ename - " + employee[2].ToString());
-            Console.WriteLine("elocation - " + employee[3].ToString());
-            Console.WriteLine("edept - " + employee[4].ToString());
-        }
-    } */
+    /* class Employee
+     {
+         int Eno;
+         double Salary;
+         string Ename, Location, Dname;
+         public Employee(int Eno , double Salary , string Ename , string Location , String Dname){
+             this.Eno = Eno;
+             this.Salary = Salary;
+             this.Ename = Ename;
+             this.Location = Location;
+             this.Dname = Dname;
+
+         }
+         public object this[int index]{
+             get{
+                 if (index == 0)
+                     return Eno;
+                 else if (index == 1)
+                     return Salary;
+                 else if (index == 2)
+                     return Ename;
+                 else if (index == 3)
+                     return Location;
+                 else if (index == 4)
+                     return Dname;
+                 else
+                     return null;
+             }
+             set{
+                 if (index == 1)
+                     Salary = (double)value;
+                 else if (index == 3)
+                     Location = (string)value;
+                 else if (index == 4)
+                     Dname = (string)value;
+             }
+         }
+     }
+     class EmployeeMain{
+         public static void Main(String[] args){
+             Employee employee = new Employee(1,85000.00,"Dhruvil","Nuv","Marketing");
+             Console.WriteLine("eno - " + employee[0].ToString());
+             Console.WriteLine("esalaray - " + employee[1].ToString());
+             Console.WriteLine("ename - " + employee[2].ToString());
+             Console.WriteLine("elocation - " + employee[3].ToString());
+             Console.WriteLine("edept - " + employee[4].ToString());
+             employee[3] = "Navrachana University";
+             employee[4] = "IT";
+             Console.WriteLine("eno - " + employee[0].ToString());
+             Console.WriteLine("esalaray - " + employee[1].ToString());
+             Console.WriteLine("ename - " + employee[2].ToString());
+             Console.WriteLine("elocation - " + employee[3].ToString());
+             Console.WriteLine("edept - " + employee[4].ToString());
+         }
+     } */
 
 
     //GENERIC LIST EXAMPLE
@@ -1580,7 +1580,7 @@ namespace CommandLineCSharp
         }
     } */
 
-    class Lmao {
+    /*class Lmao {
 
         public static void Main(string[] args){
 
@@ -1596,9 +1596,129 @@ namespace CommandLineCSharp
             Console.Write(" 12:55 9:45  New Delhi Howrah");
 
         }
+    } */
+
+
+    class CircularQueue
+    {
+
+        private int[] ele;
+        private int front;
+        private int rear;
+        private int max;
+        private int count;
+
+
+        public CircularQueue(int size)
+        {
+
+            ele = new int[size];
+            front = 0;
+            rear = -1;
+            max = size;
+            count = 0;
+
+
+        }
+
+        public void insert(int item)
+        {
+
+            if (count == max)
+            {
+
+                Console.WriteLine("Overflow");
+                return;
+            }
+            else
+            {
+
+                rear = (rear + 1) % max;
+                ele[rear] = item;
+                count++;
+
+            }
+        }
+
+        public void delete()
+        {
+
+            if (count == 0)
+            {
+
+                Console.WriteLine("Undeflow");
+                return;
+            }
+
+            else
+            {
+
+                Console.WriteLine("deleted element is " + ele[front]);
+
+                front = (front + 1) % max;
+
+                count--;
+            }
+        }
+
+        public void showQueue()
+        {
+
+            /* foreach(int x in ele){
+
+                 Console.WriteLine(x);
+             } */
+
+            int j = 0, i = 0;
+
+            if(count == 0){
+
+                Console.WriteLine("Queue is Empty");
+                return;
+
+            }
+            else {
+
+                for (i = front; j < count;)
+                {
+
+                    Console.WriteLine("Item[" + (i + 1) + "]:" + ele[i]);
+                    i = (i + 1) % max;
+                    j++;
+                }
+            }
+
+
+
+        }
+
     }
 
+    class CircularMain{
 
+        public static void Main(string[] args){
+
+
+            Console.WriteLine("Enter size");
+            int size = Convert.ToInt32(Console.ReadLine());
+
+            CircularQueue cq = new CircularQueue(size);
+
+            cq.insert(Convert.ToInt32(Console.ReadLine()));
+            cq.insert(Convert.ToInt32(Console.ReadLine()));
+            cq.insert(Convert.ToInt32(Console.ReadLine()));
+
+            cq.delete();
+            cq.delete();
+
+
+            Console.WriteLine("Final Queue is : ");
+            cq.showQueue();
+
+
+        }
+    }
+    
 }
 
 
