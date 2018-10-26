@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 
+
 namespace CommandLineCSharp
 {
 
@@ -1720,7 +1721,7 @@ namespace CommandLineCSharp
     } */
 
 
-    class HeapSort
+    /* class HeapSort
     {
 
         private int heapSize;
@@ -1795,20 +1796,105 @@ namespace CommandLineCSharp
             }
         } 
 
-    }
+    } */
 
 
-    class HeapMain{
+    /* class HeapMain{
 
-        public static void Main(string[] args){
+         public static void Main(string[] args){
 
-            HeapSort heap = new HeapSort();
+             HeapSort heap = new HeapSort();
 
-            int[] x = { 1, 3, 5, 10, 54, 6 ,8 ,67};
+             int[] x = { 1, 3, 5, 10, 54, 6 ,8 ,67};
 
-            heap.performHeapSort(x);
+             heap.performHeapSort(x);
+
+         }
+     } */
+
+    /*class Database
+    {
+
+
+        public static void Main(string[] args)
+        {
 
         }
+
+    } */
+
+    class MergeSort
+    {
+
+
+
+        static public void doMerge(int[] numbers, int left, int mid, int right)
+        {
+
+            int[] temp = new int[25];
+            int i, left_end, numm_elements, temp_pos;
+            left_end = (mid - 1);
+            temp_pos = left;
+            numm_elements = (right - left + 1);
+            while ((left <= left_end) && (mid <= right))
+            {
+
+                if (numbers[left] <= numbers[mid])
+                    temp[temp_pos++] = numbers[left++];
+                else
+                    temp[temp_pos++] = numbers[mid++];
+            }
+
+            while (left <= left_end)
+            {
+                temp[temp_pos++] = numbers[left++];
+            }
+            while (mid <= right)
+            {
+
+                temp[temp_pos++] = numbers[mid++];
+            }
+
+            for (i = 0; i < numm_elements; i++)
+            {
+
+                numbers[right] = temp[right];
+                right--;
+            }
+
+
+
+        }
+
+        static public void MergeSort_Recursive(int[] numbers, int left, int right)
+        {
+
+            int mid;
+            if (right > left)
+            {
+
+                mid = (right + left) / 2;
+                MergeSort_Recursive(numbers, left, mid);
+                MergeSort_Recursive(numbers, (mid + 1), right);
+
+                doMerge(numbers, left, (mid + 1), right);
+            }
+
+        }
+
+        static void Main(string[] args)
+            {
+
+                int[] numbers = { 1, 4, 6, 3, 8, 8, 24 };
+                Console.WriteLine("MergeSort by recursive method");
+                MergeSort_Recursive(numbers, 0, numbers.Length - 1);
+
+                for (int i = 0; i < numbers.Length; i++){
+                    Console.WriteLine(numbers[i]);
+                }
+
+            }
+
     }
 }
 
