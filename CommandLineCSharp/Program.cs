@@ -1961,7 +1961,7 @@ namespace CommandLineCSharp
         }
     } */
 
-    class ParallelExec{
+    /*class ParallelExec{
 
         public void Test1(){
 
@@ -1999,6 +1999,43 @@ namespace CommandLineCSharp
             }
 
 
+        } 
+
+    } */
+
+    class PriorityDemo{
+
+        public void Thread1(){
+
+            Console.WriteLine("Inside thread");
+        }
+    }
+
+
+    class Priority {
+
+        public static void Main(string[] args){
+
+            Console.WriteLine("Before thread start");
+
+            PriorityDemo thr1 = new PriorityDemo();
+            PriorityDemo thr2 = new PriorityDemo();
+
+            Thread t1 = new Thread(new ThreadStart(thr1.Thread1));
+            Thread t2 = new Thread(new ThreadStart(thr2.Thread1));
+
+            t1.Priority = ThreadPriority.Highest;
+            t2.Priority = ThreadPriority.Lowest;
+
+            try {
+
+                t1.Start();
+                t2.Start();
+            } catch (Exception e){
+
+                Console.WriteLine(e);
+            }
+
         }
 
     }
@@ -2010,4 +2047,4 @@ namespace CommandLineCSharp
 }
 
 
-
+    
