@@ -2067,6 +2067,16 @@ namespace CommandLineCSharp
                 Console.WriteLine("index[{0}] : {1}" , colors.IndexOf(c), c);
             }
 
+            colors.Remove("Blue");
+            Console.WriteLine("Removed Blue");
+
+            foreach (string c in colors)
+            {
+
+                Console.WriteLine("index[{0}] : {1}", colors.IndexOf(c), c);
+            }
+
+
         }
     }
 
