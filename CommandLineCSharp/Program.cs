@@ -2079,6 +2079,11 @@ namespace CommandLineCSharp
                 Console.WriteLine("index[{0}] : {1}", colors.IndexOf(c), c);
             }
 
+            if(colors.Contains("Green")){
+
+                Console.WriteLine("Green is present");
+            }
+
 
         }
     }
