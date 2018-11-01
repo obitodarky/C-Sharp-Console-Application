@@ -2070,6 +2070,9 @@ namespace CommandLineCSharp
             colors.Remove("Blue");
             Console.WriteLine("Removed Blue");
 
+            colors.RemoveAt(0);
+            Console.WriteLine("removed color at index 0");
+
             foreach (string c in colors)
             {
 
