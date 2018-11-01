@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 
 
@@ -1823,7 +1824,7 @@ namespace CommandLineCSharp
 
     } */
 
-    class MergeSort
+    /*class MergeSort
     {
 
 
@@ -1895,7 +1896,40 @@ namespace CommandLineCSharp
 
             }
 
+    } */
+
+    class ThreadDemo {
+
+        public void ThreadFunction(){
+
+            for (int i = 0; i < 5; i++){
+
+                Thread.Sleep(2000);
+                Console.WriteLine("Simple Thread");
+
+            }
+        }
+
     }
+
+    class ThreadMain{
+
+        public static void Main(){
+
+            ThreadDemo thread = new ThreadDemo();
+            Thread t1 = new Thread(new ThreadStart(thread.ThreadFunction));
+
+            t1.Name = "Thread name";
+            t1.Start();
+            Console.WriteLine(t1.IsAlive);
+            Console.WriteLine(t1.Name);
+
+            //thread.ThreadFunction();
+
+        }
+    }
+
+
 }
 
 
