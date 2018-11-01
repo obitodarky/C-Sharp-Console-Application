@@ -2003,11 +2003,17 @@ namespace CommandLineCSharp
 
     } */
 
-    class PriorityDemo{
+    /*class PriorityDemo{
 
         public void Thread1(){
 
-            Console.WriteLine("Inside thread");
+            for (int i = 0; i < 5; i++){
+
+                Thread thr = Thread.CurrentThread;
+
+                Console.WriteLine(thr.Name + '=' + i);
+                Thread.Sleep(2000);
+            }
         }
     }
 
@@ -2036,13 +2042,33 @@ namespace CommandLineCSharp
                 Console.WriteLine(e);
             }
 
+            t1.Join();
+            t2.Join();
+
+
+
         }
 
+    } */
+
+    class List{
+
+        public static void Main(string[] args){
+
+            List<string> colors = new List<string>();
+
+            colors.Add("Red");
+            colors.Add("Green");
+
+            colors.Insert(1, "Blue");
+
+            foreach(string c in colors){
+                
+                Console.WriteLine("index[{0}] : {1}" , colors.IndexOf(c), c);
+            }
+
+        }
     }
-
-
-
-
 
 }
 
