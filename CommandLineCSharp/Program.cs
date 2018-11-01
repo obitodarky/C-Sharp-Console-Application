@@ -1929,7 +1929,7 @@ namespace CommandLineCSharp
         }
     } */
 
-    public class Locking{
+    /*public class Locking{
 
         static readonly object _obj1 = new object();
 
@@ -1959,7 +1959,51 @@ namespace CommandLineCSharp
 
 
         }
+    } */
+
+    class ParallelExec{
+
+        public void Test1(){
+
+            int count = 0;
+            while(count++ < 10){
+
+                Console.WriteLine("Thread 1 Executed " + count + " times");
+                Thread.Sleep(1000);
+            }
+        }
+
+        public void Test2(){
+
+            int count = 0;
+            while(count++ <10){
+
+                Console.WriteLine("Thread 2 Executed " + count + " times");
+                Thread.Sleep(1000);
+            }
+        }
+
+        static void Main(string[] args){
+
+            ThreadStart t1 = new ThreadStart(new ParallelExec().Test1);
+            ThreadStart t2 = new ThreadStart(new ParallelExec().Test2);
+
+            Thread[] threadArray = new Thread[2];
+            threadArray[0] = new Thread(t1);
+            threadArray[1] = new Thread(t2);
+
+
+            foreach(Thread thread in threadArray){
+
+                thread.Start();
+            }
+
+
+        }
+
     }
+
+
 
 
 
