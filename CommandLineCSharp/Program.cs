@@ -1898,7 +1898,7 @@ namespace CommandLineCSharp
 
     } */
 
-    class ThreadDemo {
+    /*class ThreadDemo {
 
         public void ThreadFunction(){
 
@@ -1927,7 +1927,40 @@ namespace CommandLineCSharp
             //thread.ThreadFunction();
 
         }
+    } */
+
+    public class Locking{
+
+        static readonly object _obj1 = new object();
+
+        public static void TEST(){
+
+            lock (_obj1){
+
+                Thread.Sleep(2000);
+                Console.WriteLine(Environment.TickCount);
+            }
+        }
+
     }
+
+    class LockingMain: Locking{
+
+        public static void Main(string[] args){
+
+            for (int i = 0; i < 10;i++){
+
+                ThreadStart t1 = new ThreadStart(TEST);
+
+                new Thread(t1).Start();
+
+            }
+
+
+
+        }
+    }
+
 
 
 }
