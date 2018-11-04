@@ -2003,7 +2003,7 @@ namespace CommandLineCSharp
 
     } */
 
-    /*class PriorityDemo{
+    class PriorityDemo{
 
         public void Thread1(){
 
@@ -2030,6 +2030,8 @@ namespace CommandLineCSharp
             Thread t1 = new Thread(new ThreadStart(thr1.Thread1));
             Thread t2 = new Thread(new ThreadStart(thr2.Thread1));
 
+            t1.Name = "Thread 1";
+
             t1.Priority = ThreadPriority.Highest;
             t2.Priority = ThreadPriority.Lowest;
 
@@ -2049,9 +2051,9 @@ namespace CommandLineCSharp
 
         }
 
-    } */
+    } 
 
-    class List{
+    /*class List{
 
         public static void Main(string[] args){
 
@@ -2086,7 +2088,7 @@ namespace CommandLineCSharp
 
 
         }
-    }
+    } */
 
 }
 
