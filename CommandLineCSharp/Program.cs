@@ -1961,7 +1961,7 @@ namespace CommandLineCSharp
         }
     } */
 
-    /*class ParallelExec{
+   /* class ParallelExec{
 
         public void Test1(){
 
@@ -2011,7 +2011,7 @@ namespace CommandLineCSharp
 
                 Thread thr = Thread.CurrentThread;
 
-                Console.WriteLine(thr.Name + '=' + i);
+                Console.WriteLine(thr.Name + "=" + i);
                 Thread.Sleep(2000);
             }
         }
